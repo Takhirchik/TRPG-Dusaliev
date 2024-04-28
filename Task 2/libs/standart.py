@@ -3,8 +3,6 @@
 """
 __all__ = ['st']
 
-import matplotlib.pyplot as mt
-from math import floor, fabs
 from .uniform import _gen
 
 def distribution(numbers, a, b):

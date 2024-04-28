@@ -3,8 +3,7 @@
 """
 __all__ = ['gm']
 
-import matplotlib.pyplot as m
-from math import floor, ceil, log
+from math import log
 from .uniform import _gen
 
 def distribution(numbers, a, b, c):

@@ -1,8 +1,8 @@
 from libs import st, tr, ex, gm, nr, ln, ls, bi
 import sys
 import os.path
-import matplotlib.pyplot as plt
-import numpy as np
+from matplotlib.pyplot import hist, xlabel, ylabel, title, show
+from numpy import array
 
 class NotEnoughParameters(Exception):
     pass
@@ -21,13 +21,12 @@ def visual(distribution:list, name_of_dist:str):
         "ls":"Логистическое распределение",
         "bi":"Биномиальное распределение"
     }
-    sequence = np.array(distribution)
-    plt.hist(x=sequence, bins=100)
-    plt.xlabel("Значение")
-    plt.ylabel("Частота")
-    plt.title(dists[name_of_dist])
-    plt.show()
-
+    sequence = array(distribution)
+    hist(x=sequence, bins=100)
+    xlabel("Значение")
+    ylabel("Частота")
+    title(dists[name_of_dist])
+    show()
 
 def readfile(path:str):
     with open(path, "r") as f:

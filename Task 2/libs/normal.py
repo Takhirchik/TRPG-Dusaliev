@@ -3,8 +3,7 @@
 """
 __all__ = ['nr', 'distribution']
 
-import matplotlib.pyplot as m
-from math import floor, ceil, sqrt, cos, sin, log, pi
+from math import sqrt, cos, sin, log, pi
 from .uniform import _gen
 
 def distribution(numbers, mu, si):

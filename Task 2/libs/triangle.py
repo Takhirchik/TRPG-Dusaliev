@@ -3,8 +3,6 @@
 """
 __all__ = ['tr']
 
-import matplotlib.pyplot as m
-from math import floor, ceil
 from .uniform import _gen
 
 def distribution(numbers, a, b):

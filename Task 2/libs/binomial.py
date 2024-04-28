@@ -4,8 +4,7 @@
 
 __all__ = ['bi']
 
-import matplotlib.pyplot as m
-from math import floor, ceil, comb
+from math import comb
 from .uniform import _gen
 
 def distribution(numbers, p, n):
