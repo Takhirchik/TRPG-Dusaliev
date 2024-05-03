@@ -3,6 +3,8 @@
 """
 __all__ = ['_gen']
 
+from math import floor
+
 def uniform_distribution(numbers, m):
     i = 0
     while i < len(numbers):
