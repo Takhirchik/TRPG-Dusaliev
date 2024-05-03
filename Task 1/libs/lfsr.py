@@ -14,12 +14,13 @@ def lfsr_rand_method(m : int, c_vec : str, seed : str, size=10000):
     sr = int(seed, 2)
     xor = 0
     r = [0 for _ in range(size)]
-    c = [i for i in range(len(c_vec) - 1, -1, -1) if c_vec[i] != '0']
+    c = [i for i in range(len(c_vec) - 1, -1, -1) if c_vec[len(c_vec) - 1 - i] != '0']
     for i in range(size):
         current = 0
         for _ in range(2 ** (c[0] - 1)):
             for ch in c:
                 xor ^= (sr >> ch)
+            xor ^= sr & 1
             current <<= 1
             current ^= (sr & 1)
             sr >>= 1

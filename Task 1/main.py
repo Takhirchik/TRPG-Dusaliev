@@ -68,14 +68,15 @@ def call(method:str,
             sys.exit()
         return result
     elif method == 'add':
-        if len(pars) <= 3 or len(pars[3:]) < int(pars[2]):
-            raise NotEnoughParameters(f"Not enough parameters need {3 + pars[2]}")
+        par = list(map(int, pars[3:]))
+        if len(pars) <= 3 or len(par) < int(pars[2]):
+            raise NotEnoughParameters()
         try:
             result = add.add_rand_method(m=m,
                                          modulus=int(pars[0]),
                                          k=int(pars[1]),
                                          l=int(pars[2]),
-                                         x0=list(map(int, pars[3:])),
+                                         x0=par,
                                          size=n)
         except:
             print("Ошибка: Неправильно указаны параметры ADD")
@@ -164,7 +165,7 @@ def call(method:str,
             sys.exit()
         return result
     elif method == "bbs":
-        if len(pars) > 2 or len(pars) < 2:
+        if len(pars) > 1 or len(pars) < 1:
             raise NotEnoughParameters("Not enough parameters need 2")
         try:
             result = bbs.bbs_rand_method(m=m,
@@ -190,6 +191,9 @@ def main(prog:str, args:list[str]):
         elif argument.startswith("/f:"):
             head, tail = os.path.split(argument[3:])
             name, ex = os.path.splitext(tail)
+            if ex != '.dat':
+                print("Ошибка: Невозможно сохранить файл не с расширением .dat")
+                sys.exit()
             filename = name + ex
             path = os.path.join(head, filename)
             i = 1

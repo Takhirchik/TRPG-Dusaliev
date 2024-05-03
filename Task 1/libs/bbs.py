@@ -12,7 +12,7 @@ def bbs_rand_method(m: int, x: int, size: int = 10000):
     for _ in range(size):
         current = 0
         for _ in range(n.bit_length()):
-            x = (x ** 2) % n
+            x = pow(x, 2, n)
             current <<= 1
             current ^= (x & 1)
         r.append(current % m)

@@ -31,5 +31,5 @@ def mt_rand_method(m : int, modulus : int, seed : int, size = 10000):
 
         i = (i + 1) % p
 
-        r[j] = (y ^ (y >> l)) % m
-    return r
+        r[j] = (y ^ (y >> l)) % modulus
+    return [k%m for k in r]

@@ -2,7 +2,7 @@
 Реализация линейно-конгруэтного метода генерации псевдослучайных чисел
 """
 
-def rc4_rand_method(m : int, K : list, size=10000):
+def rc4_rand_method(m : int, K : list[int], size=10000):
     if len(K) != 256:
         raise Exception
     s = [i for i in range(256)]
